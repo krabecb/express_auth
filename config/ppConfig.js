@@ -5,11 +5,13 @@ const LocalStrategy = require('passport-local').LocalStrategy
 const db = require('../models')
 
 //Passport "serialize" info to be able to login
-//cb: callback
+//cb: callback]
+//Saving id to session
 passport.serializeUser((user, cb) => {
 	cb(null, user.id)
 })
 
+//Find user by the id
 passport.deserializeUser((id, cb) => {
 	//check to see if we can find an ID in the database
 	db.user.findByPk(id)
