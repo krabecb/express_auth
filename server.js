@@ -21,7 +21,7 @@ app.use(layouts);
 // saveUninitialized: If we have a new session, we save it, therefore making that true
 
 const sessionObject = {
-  	secret: SECRET_SESSION,
+  	secret: process.env.SECRET_SESSION,
   	//Saves a session even when it's modified, so we set it to false
   	resave: false,
   	saveUninitialized: true
